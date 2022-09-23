@@ -3,18 +3,17 @@ import 'dart:ui';
 
 import 'package:fast_noise/fast_noise.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_canvart/color_palette.dart';
 
 class NoiseOrbitPainter extends CustomPainter {
   const NoiseOrbitPainter({
     required this.perlinNoise,
-    required this.animationSalt,
-    required this.colorPalette,
+    required this.animation,
+    required this.colors,
   });
 
   final PerlinNoise perlinNoise;
-  final int animationSalt;
-  final ColorPalette colorPalette;
+  final int animation;
+  final List<Color> colors;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -33,8 +32,6 @@ class NoiseOrbitPainter extends CustomPainter {
     }
 
     final center = _getCenter(originCircle: points.first);
-
-    final colors = colorPalette.colors;
 
     var i = 0;
 
@@ -91,7 +88,7 @@ class NoiseOrbitPainter extends CustomPainter {
         return perlinNoise.getPerlin3(
           noiseX,
           noiseY,
-          animationSalt.toDouble(),
+          animation.toDouble(),
         );
       }
 
@@ -115,6 +112,6 @@ class NoiseOrbitPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant NoiseOrbitPainter oldDelegate) {
-    return oldDelegate.animationSalt != animationSalt;
+    return oldDelegate.animation != animation;
   }
 }
