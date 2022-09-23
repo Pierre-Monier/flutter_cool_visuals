@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_canvart/noise_orbit/controller/noise_orbit_state.dart';
+import 'package:flutter_canvart/noise_orbit/model/polygone_type.dart';
 import 'package:flutter_canvart/noise_orbit/util/noise_orbit_color_palette.dart';
 import 'package:flutter_canvart/shared/model/color_palette.dart';
 
@@ -27,6 +30,26 @@ class NoiseOrbitController extends ValueNotifier<NoiseOrbitState> {
     value = value.copyWith(strokeWidth: strokeWidth);
   }
 
+  void onDistortionChanged(double distortion) {
+    value = value.copyWith(distortion: distortion);
+  }
+
+  void onWidthChanged(double width) {
+    value = value.copyWith(width: width);
+  }
+
+  void onHeightChanged(double height) {
+    value = value.copyWith(height: height);
+  }
+
+  void onPolygoneTypeChanged(PolygoneType? polygonType) {
+    value = value.copyWith(polygonType: polygonType);
+  }
+
+  void onPointModeChanged(PointMode? pointMode) {
+    value = value.copyWith(pointMode: pointMode);
+  }
+
   void onColorPaletteChange(ColorPalette? colorPalette) {
     value = value.copyWith(colorPalette: colorPalette);
   }
@@ -39,4 +62,10 @@ class NoiseOrbitController extends ValueNotifier<NoiseOrbitState> {
   double get maxCircleSpacingFactor => 50.0;
   double get minStrokeWidth => 0.1;
   double get maxStrokeWidth => 50.0;
+  double get minDistortion => 0.0;
+  double get maxDistortion => 150.0;
+  double get minWidth => .1;
+  double get maxWidth => .75;
+  double get minHeight => .1;
+  double get maxHeight => .75;
 }

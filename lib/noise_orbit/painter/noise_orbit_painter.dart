@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:fast_noise/fast_noise.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_canvart/noise_orbit/model/polygone_type.dart';
 
 class NoiseOrbitPainter extends CustomPainter {
   const NoiseOrbitPainter({
@@ -12,6 +13,11 @@ class NoiseOrbitPainter extends CustomPainter {
     required this.radiusSizeFactor,
     required this.circleSpacingFactor,
     required this.strokeWidth,
+    required this.polygonType,
+    required this.distortion,
+    required this.width,
+    required this.height,
+    required this.pointMode,
   });
 
   final PerlinNoise perlinNoise;
@@ -20,6 +26,11 @@ class NoiseOrbitPainter extends CustomPainter {
   final double radiusSizeFactor;
   final double circleSpacingFactor;
   final double strokeWidth;
+  final double distortion;
+  final double width;
+  final double height;
+  final PolygoneType polygonType;
+  final PointMode pointMode;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -47,11 +58,12 @@ class NoiseOrbitPainter extends CustomPainter {
         ..strokeWidth = strokeWidth;
 
       final distoredPoints = _getDistordedPoints(
-        amountToNudge: 25,
+        amountToNudge: distortion,
         origin: center,
         points: circlePoints,
       );
-      canvas.drawPoints(PointMode.polygon, distoredPoints, paint);
+
+      canvas.drawPoints(pointMode, distoredPoints, paint);
 
       if (i < colors.length - 1) {
         i++;
@@ -65,12 +77,12 @@ class NoiseOrbitPainter extends CustomPainter {
     required Size size,
     required double radius,
   }) {
-    const radiansPerStep = pi * 2 / 100;
+    final radiansPerStep = pi * 2 / polygonType.value;
     final points = <Offset>[];
 
     for (var theta = 0.0; theta <= pi * 2; theta += radiansPerStep) {
-      final x = size.width / 2 + radius * .3 * cos(theta);
-      final y = size.height / 2 + radius * .3 * sin(theta);
+      final x = size.width / 2 + radius * width * cos(theta);
+      final y = size.height / 2 + radius * height * sin(theta);
 
       points.add(Offset(x, y));
     }
