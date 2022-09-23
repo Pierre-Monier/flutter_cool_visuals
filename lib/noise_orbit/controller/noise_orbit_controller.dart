@@ -11,16 +11,32 @@ class NoiseOrbitController extends ValueNotifier<NoiseOrbitState> {
           ),
         );
 
+  void onRadiusSizeFactorChanged(double radiusSizeFactor) {
+    value = value.copyWith(radiusSizeFactor: radiusSizeFactor);
+  }
+
+  void onCircleSpacingFactorChanged(double circleSpacingFactor) {
+    value = value.copyWith(circleSpacingFactor: circleSpacingFactor);
+  }
+
   void onFrequencyChanged(double frequency) {
     value = value.copyWith(frequency: frequency);
-    // notifyListeners();
+  }
+
+  void onStrokeWidthChanged(double strokeWidth) {
+    value = value.copyWith(strokeWidth: strokeWidth);
   }
 
   void onColorPaletteChange(ColorPalette? colorPalette) {
     value = value.copyWith(colorPalette: colorPalette);
-    // notifyListeners();
   }
 
   double get minFrequency => 0.0001;
   double get maxFrequency => 0.0025;
+  double get minRadiusSizeFactor => 1.25;
+  double get maxRadiusSizeFactor => 50.0;
+  double get minCircleSpacingFactor => 0.5;
+  double get maxCircleSpacingFactor => 50.0;
+  double get minStrokeWidth => 0.1;
+  double get maxStrokeWidth => 50.0;
 }

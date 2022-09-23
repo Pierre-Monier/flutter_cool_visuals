@@ -3,8 +3,8 @@ import 'package:flutter_canvart/noise_orbit/controller/noise_orbit_controller_pr
 import 'package:flutter_canvart/noise_orbit/controller/noise_orbit_state.dart';
 import 'package:flutter_canvart/shared/widget/base_slider.dart';
 
-class FrequencySlider extends StatelessWidget {
-  const FrequencySlider({super.key});
+class CircleSpacingFactorSlider extends StatelessWidget {
+  const CircleSpacingFactorSlider({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +15,12 @@ class FrequencySlider extends StatelessWidget {
       valueListenable: noiseOrbitController,
       builder: (context, noiseOrbitState, child) {
         return BaseSlider(
-          label: "Frequency",
+          label: "Spacing",
           data: SliderData(
-            max: noiseOrbitController.maxFrequency,
-            min: noiseOrbitController.minFrequency,
-            value: noiseOrbitState.frequency,
-            onChanged: noiseOrbitController.onFrequencyChanged,
+            max: noiseOrbitController.maxCircleSpacingFactor,
+            min: noiseOrbitController.minCircleSpacingFactor,
+            value: noiseOrbitState.circleSpacingFactor,
+            onChanged: noiseOrbitController.onCircleSpacingFactorChanged,
           ),
         );
       },

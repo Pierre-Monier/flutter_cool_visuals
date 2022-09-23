@@ -3,8 +3,8 @@ import 'package:flutter_canvart/noise_orbit/controller/noise_orbit_controller_pr
 import 'package:flutter_canvart/noise_orbit/controller/noise_orbit_state.dart';
 import 'package:flutter_canvart/shared/widget/base_slider.dart';
 
-class FrequencySlider extends StatelessWidget {
-  const FrequencySlider({super.key});
+class StrokeWidthFactorSlider extends StatelessWidget {
+  const StrokeWidthFactorSlider({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +15,12 @@ class FrequencySlider extends StatelessWidget {
       valueListenable: noiseOrbitController,
       builder: (context, noiseOrbitState, child) {
         return BaseSlider(
-          label: "Frequency",
+          label: "Stroke Width",
           data: SliderData(
-            max: noiseOrbitController.maxFrequency,
-            min: noiseOrbitController.minFrequency,
-            value: noiseOrbitState.frequency,
-            onChanged: noiseOrbitController.onFrequencyChanged,
+            max: noiseOrbitController.maxStrokeWidth,
+            min: noiseOrbitController.minStrokeWidth,
+            value: noiseOrbitState.strokeWidth,
+            onChanged: noiseOrbitController.onStrokeWidthChanged,
           ),
         );
       },

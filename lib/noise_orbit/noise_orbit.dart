@@ -15,7 +15,6 @@ class NoiseOrbit extends StatefulWidget {
 }
 
 class _NoiseOrbitState extends State<NoiseOrbit> {
-  double frequency = 0.0007;
   int animation = 0;
   final seed = Random().nextInt(2048);
 
@@ -41,6 +40,9 @@ class _NoiseOrbitState extends State<NoiseOrbit> {
           color: noiseOrbitState.colorPalette.backgroundColor,
           child: CustomPaint(
             painter: NoiseOrbitPainter(
+              radiusSizeFactor: noiseOrbitState.radiusSizeFactor,
+              circleSpacingFactor: noiseOrbitState.circleSpacingFactor,
+              strokeWidth: noiseOrbitState.strokeWidth,
               colors: noiseOrbitState.colorPalette.colors,
               animation: animation,
               perlinNoise: PerlinNoise(

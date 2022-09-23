@@ -9,20 +9,26 @@ class NoiseOrbitPainter extends CustomPainter {
     required this.perlinNoise,
     required this.animation,
     required this.colors,
+    required this.radiusSizeFactor,
+    required this.circleSpacingFactor,
+    required this.strokeWidth,
   });
 
   final PerlinNoise perlinNoise;
   final int animation;
   final List<Color> colors;
+  final double radiusSizeFactor;
+  final double circleSpacingFactor;
+  final double strokeWidth;
 
   @override
   void paint(Canvas canvas, Size size) {
     final points = <List<Offset>>[];
-    final radiusSize = size.width / 10;
+    final radiusSize = size.width / radiusSizeFactor;
 
     for (var radius = radiusSize;
         radius < size.width;
-        radius += radiusSize / 20) {
+        radius += radiusSize / circleSpacingFactor) {
       points.add(
         _getCirclesData(
           size: size,
@@ -38,7 +44,7 @@ class NoiseOrbitPainter extends CustomPainter {
     for (final circlePoints in points) {
       final paint = Paint()
         ..color = colors[i]
-        ..strokeWidth = .1;
+        ..strokeWidth = strokeWidth;
 
       final distoredPoints = _getDistordedPoints(
         amountToNudge: 25,
