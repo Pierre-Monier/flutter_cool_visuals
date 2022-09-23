@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_canvart/noise_orbit/controller/noise_orbit_state.dart';
 import 'package:flutter_canvart/noise_orbit/model/polygone_type.dart';
+import 'package:flutter_canvart/noise_orbit/model/stroke_cap.dart';
 import 'package:flutter_canvart/noise_orbit/util/noise_orbit_color_palette.dart';
 import 'package:flutter_canvart/shared/model/color_palette.dart';
 
@@ -52,6 +53,10 @@ class NoiseOrbitController extends ValueNotifier<NoiseOrbitState> {
 
   void onColorPaletteChange(ColorPalette? colorPalette) {
     value = value.copyWith(colorPalette: colorPalette);
+  }
+
+  void onStrokeCapChanged(NoiseOrbitStrokeCap? strokeCap) {
+    value = value.copyWith(strokeCap: strokeCap);
   }
 
   double get minFrequency => 0.0001;

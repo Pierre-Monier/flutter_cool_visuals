@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_canvart/noise_orbit/model/polygone_type.dart';
+import 'package:flutter_canvart/noise_orbit/model/stroke_cap.dart';
 import 'package:flutter_canvart/shared/model/color_palette.dart';
 
 @immutable
@@ -17,6 +18,7 @@ class NoiseOrbitState {
     required this.polygonType,
     required this.pointMode,
     required this.colorPalette,
+    required this.strokeCap,
   });
 
   factory NoiseOrbitState.initial({required ColorPalette colorPalette}) =>
@@ -31,6 +33,7 @@ class NoiseOrbitState {
         polygonType: _initialPolygoneType,
         pointMode: _initialPointMode,
         colorPalette: colorPalette,
+        strokeCap: _initialStrokeCap,
       );
 
   static const _initialFrequency = 0.0007;
@@ -42,6 +45,7 @@ class NoiseOrbitState {
   static const _initialHeight = .3;
   static const _initialPolygoneType = PolygoneType.cirlcle;
   static const _initialPointMode = PointMode.polygon;
+  static const _initialStrokeCap = NoiseOrbitStrokeCap.square;
 
   final double frequency;
   final double radiusSizeFactor;
@@ -53,6 +57,7 @@ class NoiseOrbitState {
   final PolygoneType polygonType;
   final PointMode pointMode;
   final ColorPalette colorPalette;
+  final NoiseOrbitStrokeCap strokeCap;
 
   NoiseOrbitState copyWith({
     double? radiusSizeFactor,
@@ -65,6 +70,7 @@ class NoiseOrbitState {
     PolygoneType? polygonType,
     PointMode? pointMode,
     ColorPalette? colorPalette,
+    NoiseOrbitStrokeCap? strokeCap,
   }) =>
       NoiseOrbitState(
         radiusSizeFactor: radiusSizeFactor ?? this.radiusSizeFactor,
@@ -77,5 +83,6 @@ class NoiseOrbitState {
         polygonType: polygonType ?? this.polygonType,
         pointMode: pointMode ?? this.pointMode,
         colorPalette: colorPalette ?? this.colorPalette,
+        strokeCap: strokeCap ?? this.strokeCap,
       );
 }

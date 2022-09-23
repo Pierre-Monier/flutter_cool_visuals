@@ -40,15 +40,7 @@ class _NoiseOrbitState extends State<NoiseOrbit> {
           color: noiseOrbitState.colorPalette.backgroundColor,
           child: CustomPaint(
             painter: NoiseOrbitPainter(
-              radiusSizeFactor: noiseOrbitState.radiusSizeFactor,
-              circleSpacingFactor: noiseOrbitState.circleSpacingFactor,
-              strokeWidth: noiseOrbitState.strokeWidth,
-              distortion: noiseOrbitState.distortion,
-              width: noiseOrbitState.width,
-              height: noiseOrbitState.height,
-              polygonType: noiseOrbitState.polygonType,
-              colors: noiseOrbitState.colorPalette.colors,
-              pointMode: noiseOrbitState.pointMode,
+              noiseOrbitState: noiseOrbitState,
               animation: animation,
               perlinNoise: PerlinNoise(
                 seed: seed,

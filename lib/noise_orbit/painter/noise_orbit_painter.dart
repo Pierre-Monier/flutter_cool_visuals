@@ -1,45 +1,28 @@
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:fast_noise/fast_noise.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_canvart/noise_orbit/model/polygone_type.dart';
+import 'package:flutter_canvart/noise_orbit/controller/noise_orbit_state.dart';
 
 class NoiseOrbitPainter extends CustomPainter {
   const NoiseOrbitPainter({
     required this.perlinNoise,
     required this.animation,
-    required this.colors,
-    required this.radiusSizeFactor,
-    required this.circleSpacingFactor,
-    required this.strokeWidth,
-    required this.polygonType,
-    required this.distortion,
-    required this.width,
-    required this.height,
-    required this.pointMode,
+    required this.noiseOrbitState,
   });
 
   final PerlinNoise perlinNoise;
   final int animation;
-  final List<Color> colors;
-  final double radiusSizeFactor;
-  final double circleSpacingFactor;
-  final double strokeWidth;
-  final double distortion;
-  final double width;
-  final double height;
-  final PolygoneType polygonType;
-  final PointMode pointMode;
+  final NoiseOrbitState noiseOrbitState;
 
   @override
   void paint(Canvas canvas, Size size) {
     final points = <List<Offset>>[];
-    final radiusSize = size.width / radiusSizeFactor;
+    final radiusSize = size.width / noiseOrbitState.radiusSizeFactor;
 
     for (var radius = radiusSize;
         radius < size.width;
-        radius += radiusSize / circleSpacingFactor) {
+        radius += radiusSize / noiseOrbitState.circleSpacingFactor) {
       points.add(
         _getCirclesData(
           size: size,
@@ -54,18 +37,19 @@ class NoiseOrbitPainter extends CustomPainter {
 
     for (final circlePoints in points) {
       final paint = Paint()
-        ..color = colors[i]
-        ..strokeWidth = strokeWidth;
+        ..color = noiseOrbitState.colorPalette.colors[i]
+        ..strokeCap = noiseOrbitState.strokeCap.value
+        ..strokeWidth = noiseOrbitState.strokeWidth;
 
       final distoredPoints = _getDistordedPoints(
-        amountToNudge: distortion,
+        amountToNudge: noiseOrbitState.distortion,
         origin: center,
         points: circlePoints,
       );
 
-      canvas.drawPoints(pointMode, distoredPoints, paint);
+      canvas.drawPoints(noiseOrbitState.pointMode, distoredPoints, paint);
 
-      if (i < colors.length - 1) {
+      if (i < noiseOrbitState.colorPalette.colors.length - 1) {
         i++;
       } else {
         i = 0;
@@ -77,12 +61,12 @@ class NoiseOrbitPainter extends CustomPainter {
     required Size size,
     required double radius,
   }) {
-    final radiansPerStep = pi * 2 / polygonType.value;
+    final radiansPerStep = pi * 2 / noiseOrbitState.polygonType.value;
     final points = <Offset>[];
 
     for (var theta = 0.0; theta <= pi * 2; theta += radiansPerStep) {
-      final x = size.width / 2 + radius * width * cos(theta);
-      final y = size.height / 2 + radius * height * sin(theta);
+      final x = size.width / 2 + radius * noiseOrbitState.width * cos(theta);
+      final y = size.height / 2 + radius * noiseOrbitState.height * sin(theta);
 
       points.add(Offset(x, y));
     }
