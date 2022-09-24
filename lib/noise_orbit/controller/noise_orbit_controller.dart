@@ -11,7 +11,7 @@ class NoiseOrbitController extends ValueNotifier<NoiseOrbitState> {
   NoiseOrbitController()
       : super(
           NoiseOrbitState.initial(
-            colorPalette: noiseOrbitcolorPalettes.first,
+            colorPalette: noiseOrbitcolorPalettes.last,
           ),
         );
 
