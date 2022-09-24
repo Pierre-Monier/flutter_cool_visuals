@@ -13,6 +13,7 @@ dependencies:
   fast_noise: ^1.0.1
   flutter:
     sdk: flutter
+  url_launcher: ^6.1.5
 
 dev_dependencies:
   flutter_test:
@@ -22,3 +23,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: Remix Icon
+      fonts:
+        - asset: asset/remixicon.ttf
