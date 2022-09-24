@@ -1,16 +1,15 @@
-# flutter_canvart
+# Flutter cool visuals
 
-A new Flutter project.
+[![style: lint](https://img.shields.io/badge/style-lint-4BC0F5.svg)](https://pub.dev/packages/lint)
 
-## Getting Started
+Collection of cool visuals, from generative art to mobile app UI
 
-This project is a starting point for a Flutter application.
+## Perlin Noise Orbit
 
-A few resources to get you started if this is your first Flutter project:
+Some fun with the perlin noise algorithm
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![perlin noise]([http://url/to/img.png](https://github.com/Pierre-Monier/flutter_cool_visuals/screenshot/perlin_noise.png))
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![perlin noise]([http://url/to/img.png](https://github.com/Pierre-Monier/flutter_cool_visuals/screenshot/perlin_noise2.png))
+
+![perlin noise]([http://url/to/img.png](https://github.com/Pierre-Monier/flutter_cool_visuals/screenshot/perlin_noise3.png))
