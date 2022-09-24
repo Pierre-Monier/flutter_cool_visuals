@@ -8,8 +8,8 @@ Collection of cool visuals, from generative art to mobile app UI
 
 Some fun with the perlin noise algorithm
 
-![perlin noise]([http://url/to/img.png](https://github.com/Pierre-Monier/flutter_cool_visuals/screenshot/perlin_noise.png))
+![perlin noise](https://github.com/Pierre-Monier/flutter_cool_visuals/screenshot/perlin_noise.png)
 
-![perlin noise]([http://url/to/img.png](https://github.com/Pierre-Monier/flutter_cool_visuals/screenshot/perlin_noise2.png))
+![perlin noise](https://github.com/Pierre-Monier/flutter_cool_visuals/screenshot/perlin_noise2.png)
 
-![perlin noise]([http://url/to/img.png](https://github.com/Pierre-Monier/flutter_cool_visuals/screenshot/perlin_noise3.png))
+![perlin noise](https://github.com/Pierre-Monier/flutter_cool_visuals/screenshot/perlin_noise3.png)
