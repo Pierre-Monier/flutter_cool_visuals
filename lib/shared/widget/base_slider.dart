@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_canvart/shared/widget/tool_constraints.dart';
 
 @immutable
 class SliderData {
@@ -23,16 +24,20 @@ class BaseSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(label),
-        Slider(
-          min: data.min,
-          max: data.max,
-          value: data.value,
-          onChanged: data.onChanged,
-        ),
-      ],
+    return ToolConstraints(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(label),
+          const SizedBox(height: 8.0),
+          Slider(
+            min: data.min,
+            max: data.max,
+            value: data.value,
+            onChanged: data.onChanged,
+          ),
+        ],
+      ),
     );
   }
 }

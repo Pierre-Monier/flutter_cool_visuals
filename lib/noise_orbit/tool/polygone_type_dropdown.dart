@@ -34,6 +34,8 @@ class PolygonTypeDropdown extends StatelessWidget {
             items: _getItems(),
             value: noiseOrbitState.polygonType,
             onChanged: noiseOrbitController.onPolygoneTypeChanged,
+            textColor: noiseOrbitController.textColor,
+            backgroundColor: noiseOrbitController.backgroundColor,
           ),
         );
       },

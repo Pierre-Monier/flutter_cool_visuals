@@ -15,7 +15,7 @@ class FrequencySlider extends StatelessWidget {
       valueListenable: noiseOrbitController,
       builder: (context, noiseOrbitState, child) {
         return BaseSlider(
-          label: "Frequency",
+          label: "Pelerin Noise Frequency",
           data: SliderData(
             max: noiseOrbitController.maxFrequency,
             min: noiseOrbitController.minFrequency,

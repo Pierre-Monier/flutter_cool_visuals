@@ -15,7 +15,7 @@ class RadiusSizeFactorSlider extends StatelessWidget {
       valueListenable: noiseOrbitController,
       builder: (context, noiseOrbitState, child) {
         return BaseSlider(
-          label: "Radius Size",
+          label: "Center Radius",
           data: SliderData(
             max: noiseOrbitController.maxRadiusSizeFactor,
             min: noiseOrbitController.minRadiusSizeFactor,

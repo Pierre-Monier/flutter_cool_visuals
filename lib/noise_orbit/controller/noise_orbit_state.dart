@@ -1,9 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_canvart/noise_orbit/model/color_palette.dart';
 import 'package:flutter_canvart/noise_orbit/model/polygone_type.dart';
 import 'package:flutter_canvart/noise_orbit/model/stroke_cap.dart';
-import 'package:flutter_canvart/shared/model/color_palette.dart';
 
 @immutable
 class NoiseOrbitState {
@@ -36,8 +36,8 @@ class NoiseOrbitState {
         strokeCap: _initialStrokeCap,
       );
 
-  static const _initialFrequency = 0.0007;
-  static const _initialRadiusSizeFactor = 10.0;
+  static const _initialFrequency = .0007;
+  static const _initialRadiusSizeFactor = .08;
   static const _initialCircleSpacingFactor = 10.0;
   static const _initialDistortion = 25.0;
   static const _initialStrokeWidth = 1.0;

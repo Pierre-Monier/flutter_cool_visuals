@@ -15,7 +15,7 @@ class CircleSpacingFactorSlider extends StatelessWidget {
       valueListenable: noiseOrbitController,
       builder: (context, noiseOrbitState, child) {
         return BaseSlider(
-          label: "Spacing",
+          label: "Shape repetition",
           data: SliderData(
             max: noiseOrbitController.maxCircleSpacingFactor,
             min: noiseOrbitController.minCircleSpacingFactor,

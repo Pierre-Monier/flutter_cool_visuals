@@ -2,10 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_canvart/noise_orbit/controller/noise_orbit_state.dart';
+import 'package:flutter_canvart/noise_orbit/model/color_palette.dart';
 import 'package:flutter_canvart/noise_orbit/model/polygone_type.dart';
 import 'package:flutter_canvart/noise_orbit/model/stroke_cap.dart';
 import 'package:flutter_canvart/noise_orbit/util/noise_orbit_color_palette.dart';
-import 'package:flutter_canvart/shared/model/color_palette.dart';
 
 class NoiseOrbitController extends ValueNotifier<NoiseOrbitState> {
   NoiseOrbitController()
@@ -61,16 +61,23 @@ class NoiseOrbitController extends ValueNotifier<NoiseOrbitState> {
 
   double get minFrequency => 0.0001;
   double get maxFrequency => 0.0025;
-  double get minRadiusSizeFactor => 1.25;
-  double get maxRadiusSizeFactor => 50.0;
+  double get minRadiusSizeFactor => .008;
+  double get maxRadiusSizeFactor => .8;
   double get minCircleSpacingFactor => 0.5;
   double get maxCircleSpacingFactor => 50.0;
   double get minStrokeWidth => 0.1;
-  double get maxStrokeWidth => 50.0;
+  double get maxStrokeWidth => 25.0;
   double get minDistortion => 0.0;
   double get maxDistortion => 150.0;
   double get minWidth => .1;
   double get maxWidth => .75;
   double get minHeight => .1;
   double get maxHeight => .75;
+
+  Color get textColor => value.colorPalette.brightness == Brightness.light
+      ? Colors.black
+      : Colors.white;
+  Color get backgroundColor => value.colorPalette.brightness == Brightness.light
+      ? Colors.white
+      : Colors.black;
 }

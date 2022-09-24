@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_canvart/shared/model/color_palette.dart';
+import 'package:flutter_canvart/noise_orbit/model/color_palette.dart';
 
 final noiseOrbitcolorPalettes = [
   const ColorPalette(
@@ -11,6 +11,7 @@ final noiseOrbitcolorPalettes = [
       Color(0xFF033904),
       Color(0xFF92cc73),
     ],
+    brightness: Brightness.dark,
   ),
   const ColorPalette(
     name: "White",
@@ -22,5 +23,6 @@ final noiseOrbitcolorPalettes = [
       Color(0xFF426655),
       Color(0xFF426655),
     ],
+    brightness: Brightness.light,
   ),
 ];

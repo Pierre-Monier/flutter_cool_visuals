@@ -23,29 +23,29 @@ class NoiseOrbitConfiguration extends StatelessWidget {
     final noiseOrbitController =
         NoiseOrbitControllerProvider.of(context).controller;
 
-    return Column(
-      children: [
-        const FrequencySlider(),
-        const RadiusSizeFactorSlider(),
-        const CircleSpacingFactorSlider(),
-        const StrokeWidthFactorSlider(),
-        const DistortionSlider(),
-        const WidthSlider(),
-        const HeightSlider(),
-        const PolygonTypeDropdown(),
-        const PointModeDropdown(),
-        const ColorPaletteDropdown(),
-        ValueListenableBuilder<NoiseOrbitState>(
-          valueListenable: noiseOrbitController,
-          builder: (context, noiseOrbitState, child) {
-            if (noiseOrbitState.pointMode != PointMode.polygon) {
-              return const StrokeCapDropdown();
-            }
-
-            return const SizedBox();
-          },
-        )
-      ],
+    return ValueListenableBuilder<NoiseOrbitState>(
+      valueListenable: noiseOrbitController,
+      builder: (context, noiseOrbitState, child) {
+        return DefaultTextStyle(
+          style: TextStyle(color: noiseOrbitController.textColor),
+          child: Wrap(
+            children: [
+              const WidthSlider(),
+              const HeightSlider(),
+              const RadiusSizeFactorSlider(),
+              const CircleSpacingFactorSlider(),
+              const FrequencySlider(),
+              const DistortionSlider(),
+              const StrokeWidthFactorSlider(),
+              const PolygonTypeDropdown(),
+              const PointModeDropdown(),
+              const ColorPaletteDropdown(),
+              if (noiseOrbitState.pointMode != PointMode.polygon)
+                const StrokeCapDropdown(),
+            ],
+          ),
+        );
+      },
     );
   }
 }

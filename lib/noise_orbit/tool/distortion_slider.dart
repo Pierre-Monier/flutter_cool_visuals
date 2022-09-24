@@ -15,7 +15,7 @@ class DistortionSlider extends StatelessWidget {
       valueListenable: noiseOrbitController,
       builder: (context, noiseOrbitState, child) {
         return BaseSlider(
-          label: "Distortion",
+          label: "Pelerin Noise Distortion",
           data: SliderData(
             max: noiseOrbitController.maxDistortion,
             min: noiseOrbitController.minDistortion,

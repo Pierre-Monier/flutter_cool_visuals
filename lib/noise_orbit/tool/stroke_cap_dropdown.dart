@@ -34,6 +34,8 @@ class StrokeCapDropdown extends StatelessWidget {
             items: _getItems(),
             value: noiseOrbitState.strokeCap,
             onChanged: noiseOrbitController.onStrokeCapChanged,
+            textColor: noiseOrbitController.textColor,
+            backgroundColor: noiseOrbitController.backgroundColor,
           ),
         );
       },

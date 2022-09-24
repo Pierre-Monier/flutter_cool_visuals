@@ -34,6 +34,8 @@ class PointModeDropdown extends StatelessWidget {
             items: _getItems(),
             value: noiseOrbitState.pointMode,
             onChanged: noiseOrbitController.onPointModeChanged,
+            textColor: noiseOrbitController.textColor,
+            backgroundColor: noiseOrbitController.backgroundColor,
           ),
         );
       },

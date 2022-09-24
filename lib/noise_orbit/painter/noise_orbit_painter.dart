@@ -18,7 +18,7 @@ class NoiseOrbitPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final points = <List<Offset>>[];
-    final radiusSize = size.width / noiseOrbitState.radiusSizeFactor;
+    final radiusSize = size.width * noiseOrbitState.radiusSizeFactor;
 
     for (var radius = radiusSize;
         radius < size.width;
