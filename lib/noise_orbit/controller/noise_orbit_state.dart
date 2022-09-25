@@ -39,10 +39,10 @@ class NoiseOrbitState {
   static const _initialFrequency = .0007;
   static const _initialRadiusSizeFactor = .08;
   static const _initialCircleSpacingFactor = 10.0;
-  static const _initialDistortion = 25.0;
+  static const _initialDistortion = 20.0;
   static const _initialStrokeWidth = 1.0;
-  static const _initialWidth = .3;
-  static const _initialHeight = .3;
+  static const _initialWidth = .25;
+  static const _initialHeight = .25;
   static const _initialPolygoneType = PolygoneType.cirlcle;
   static const _initialPointMode = PointMode.polygon;
   static const _initialStrokeCap = NoiseOrbitStrokeCap.square;

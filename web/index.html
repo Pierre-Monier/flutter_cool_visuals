@@ -31,6 +31,7 @@
 
   <title>flutter_canvart</title>
   <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="loader.css">
 
   <script>
     // The value below is injected by flutter build, do not touch.
@@ -40,7 +41,8 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
-  <script>
+  <div id="loading"></div>
+  <!-- <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
@@ -50,9 +52,10 @@
       }).then(function(engineInitializer) {
         return engineInitializer.initializeEngine();
       }).then(function(appRunner) {
+        document.querySelector("#loading").remove()
         return appRunner.runApp();
       });
     });
-  </script>
+  </script> -->
 </body>
 </html>
