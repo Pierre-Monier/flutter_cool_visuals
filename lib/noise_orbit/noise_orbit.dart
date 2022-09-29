@@ -36,16 +36,13 @@ class _NoiseOrbitState extends State<NoiseOrbit> {
     return ValueListenableBuilder<NoiseOrbitState>(
       valueListenable: noiseOrbitController,
       builder: (context, noiseOrbitState, child) {
-        return ColoredBox(
-          color: noiseOrbitState.colorPalette.backgroundColor,
-          child: CustomPaint(
-            painter: NoiseOrbitPainter(
-              noiseOrbitState: noiseOrbitState,
-              animation: animation,
-              perlinNoise: PerlinNoise(
-                seed: seed,
-                frequency: noiseOrbitState.frequency,
-              ),
+        return CustomPaint(
+          painter: NoiseOrbitPainter(
+            noiseOrbitState: noiseOrbitState,
+            animation: animation,
+            perlinNoise: PerlinNoise(
+              seed: seed,
+              frequency: noiseOrbitState.frequency,
             ),
           ),
         );

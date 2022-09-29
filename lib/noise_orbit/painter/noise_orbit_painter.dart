@@ -17,6 +17,9 @@ class NoiseOrbitPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    canvas.drawPaint(
+      Paint()..color = noiseOrbitState.colorPalette.backgroundColor,
+    );
     final points = <List<Offset>>[];
     final radiusSize = size.width * noiseOrbitState.radiusSizeFactor;
 
@@ -39,6 +42,7 @@ class NoiseOrbitPainter extends CustomPainter {
       final paint = Paint()
         ..color = noiseOrbitState.colorPalette.colors[i]
         ..strokeCap = noiseOrbitState.strokeCap.value
+        ..filterQuality = FilterQuality.high
         ..strokeWidth = noiseOrbitState.strokeWidth;
 
       final distoredPoints = _getDistordedPoints(
