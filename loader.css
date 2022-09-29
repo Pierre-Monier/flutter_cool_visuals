@@ -1,0 +1,24 @@
+html {
+    height: 100%;
+}
+body {
+    background-color: #d8d3ce;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loading {
+    border: 16px solid #f7cac9;
+    border-top: 16px solid #000000;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 1s cubic-bezier(.42, 0, 1, 1) infinite;
+  }
+  
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
