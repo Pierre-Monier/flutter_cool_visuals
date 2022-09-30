@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_canvart/judgy_voronoi_diagram/judgy_voronoi_diagram.dart';
 import 'package:flutter_canvart/noise_orbit/controller/noise_orbit_controller_provider.dart';
 import 'package:flutter_canvart/noise_orbit/noise_orbit.dart';
 import 'package:flutter_canvart/noise_orbit/tool/noise_orbit_configuration.dart';
@@ -40,43 +41,43 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Perlin Noise Orbit"),
-        actions: [
-          IconButton(
-            onPressed: () {
-              openLink("https://twitter.com/pierremonier9");
-            },
-            icon: const Icon(AppIcons.twitter),
-          ),
-          IconButton(
-            onPressed: () {
-              openLink("https://github.com/Pierre-Monier/flutter_cool_visuals");
-            },
-            icon: const Icon(AppIcons.github),
-          ),
-        ],
+    return const Scaffold(
+      // appBar: AppBar(
+      //   title: const Text("Perlin Noise Orbit"),
+      //   actions: [
+      //     IconButton(
+      //       onPressed: () {
+      //         openLink("https://twitter.com/pierremonier9");
+      //       },
+      //       icon: const Icon(AppIcons.twitter),
+      //     ),
+      //     IconButton(
+      //       onPressed: () {
+      //         openLink("https://github.com/Pierre-Monier/flutter_cool_visuals");
+      //       },
+      //       icon: const Icon(AppIcons.github),
+      //     ),
+      //   ],
+      // ),
+      body: SizedBox.expand(
+        child: JudgyVoronoiDiagram(),
       ),
-      body: const SizedBox.expand(
-        child: NoiseOrbit(),
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          showModalBottomSheet(
-            context: context,
-            barrierColor: Colors.transparent,
-            backgroundColor: Colors.transparent,
-            builder: (context) {
-              return const ConfigurationModal(
-                child: NoiseOrbitConfiguration(),
-              );
-            },
-          );
-        },
-        icon: const Icon(Icons.edit),
-        label: const Text("Edit"),
-      ),
+      // floatingActionButton: FloatingActionButton.extended(
+      //   onPressed: () {
+      //     showModalBottomSheet(
+      //       context: context,
+      //       barrierColor: Colors.transparent,
+      //       backgroundColor: Colors.transparent,
+      //       builder: (context) {
+      //         return const ConfigurationModal(
+      //           child: NoiseOrbitConfiguration(),
+      //         );
+      //       },
+      //     );
+      //   },
+      //   icon: const Icon(Icons.edit),
+      //   label: const Text("Edit"),
+      // ),
     );
   }
 }

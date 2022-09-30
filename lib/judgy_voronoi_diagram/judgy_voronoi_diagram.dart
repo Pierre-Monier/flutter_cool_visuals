@@ -6,8 +6,8 @@ class JudgyVoronoiDiagram extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: JudgyVoronoiDiagramPainter(),
+    return const CustomPaint(
+      painter: JudgyVoronoiDiagramPainter(numberOfPoints: 20),
     );
   }
 }
