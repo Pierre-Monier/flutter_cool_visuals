@@ -10,16 +10,9 @@ class JudgyVoronoiDiagramPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final generatorPoints = <Offset>[];
-
-    for (var i = 0; i < numberOfPoints; i++) {
-      generatorPoints.add(
-        Offset(
-          Random().nextDouble() * size.width,
-          Random().nextDouble() * size.height,
-        ),
-      );
-    }
+    final discretPoints = _getDiscretPoints(size);
+    final generatorPoints =
+        _getGeneratorPoints(numberOfPoints: numberOfPoints, size: size);
 
     canvas.drawPoints(
       PointMode.points,
@@ -31,7 +24,7 @@ class JudgyVoronoiDiagramPainter extends CustomPainter {
     );
 
     final voronoiCells =
-        generatorPoints.map((point) => generateVoronoiCell(point)).toList();
+        generatorPoints.map((point) => _getVoronoiCell(point)).toList();
 
     for (final voronoiCell in voronoiCells) {
       canvas.drawPoints(
@@ -45,12 +38,42 @@ class JudgyVoronoiDiagramPainter extends CustomPainter {
     }
   }
 
+  List<Offset> _getDiscretPoints(Size size) {
+    final points = <Offset>[];
+
+    for (var i = 0; i < size.width; i++) {
+      for (var j = 0; j < size.height; j++) {
+        points.add(Offset(i.toDouble(), j.toDouble()));
+      }
+    }
+
+    return points;
+  }
+
+  List<Offset> _getGeneratorPoints({
+    required int numberOfPoints,
+    required Size size,
+  }) {
+    final points = <Offset>[];
+
+    for (var i = 0; i < numberOfPoints; i++) {
+      points.add(
+        Offset(
+          Random().nextDouble() * size.width,
+          Random().nextDouble() * size.height,
+        ),
+      );
+    }
+
+    return points;
+  }
+
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return false;
   }
 
-  List<Offset> generateVoronoiCell(Offset generatorPoint) {
+  List<Offset> _getVoronoiCell(Offset generatorPoint) {
     return [];
   }
 }
