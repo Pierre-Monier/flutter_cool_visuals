@@ -1,5 +1,6 @@
 name: Flutter Web
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
